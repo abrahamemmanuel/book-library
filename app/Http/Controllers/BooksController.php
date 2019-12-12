@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class BooksController extends Controller
 {
     public function store()
     {
         Book::create($this->validateRequest());
+
+        return response(Response::HTTP_CREATED);
     }
 
     public function update(Book $book)

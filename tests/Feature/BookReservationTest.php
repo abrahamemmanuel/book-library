@@ -38,7 +38,7 @@ class BookReservationTest extends TestCase
     }
 
     /** @test */
-    public function a_author_is_required()
+    public function an_author_is_required()
     {
 
         $response = $this->post('/books', [
@@ -54,19 +54,19 @@ class BookReservationTest extends TestCase
     public function a_book_can_be_updated()
     {
         $this->withoutExceptionHandling();
-       $this->post('/books', [
-         'title' => 'MO & Sharon',
-         'author' => 'Emmnanuel'
-       ]);
+        $this->post('/books', [
+            'title' => 'MO & Sharon',
+            'author' => 'Emmnanuel',
+        ]);
 
-       $book = Book::first();
+        $book = Book::first();
 
-       $response = $this->patch('/books/' . $book->id, [
-         'title' => 'New Title',
-         'author' => 'New Author'
-       ]);
+        $response = $this->patch('/books/' . $book->id, [
+            'title' => 'New Title',
+            'author' => 'New Author',
+        ]);
 
-       $this->assertEquals('New Title', Book::first()->title);
-       $this->assertEquals('New Author', Book::first()->author);
+        $this->assertEquals('New Title', Book::first()->title);
+        $this->assertEquals('New Author', Book::first()->author);
     }
 }
