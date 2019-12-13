@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 
 class Author extends Model
 {
@@ -13,6 +13,7 @@ class Author extends Model
 
     public function setDobAttribute($dob)
     {
-       $this->attributes['dob'] = Carbon::parse($dob);
+        $this->attributes['dob'] = Carbon::parse($dob);
     }
+
 }
